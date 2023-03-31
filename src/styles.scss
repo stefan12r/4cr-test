@@ -1,0 +1,33 @@
+.error {
+    color: red;
+}
+
+
+
+button {
+    cursor: pointer;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    background-color: #009879;
+    padding: 1em;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    width: fit-content;
+    transition: padding 1s;
+
+    &[disabled] {
+        background-color: grey;
+    }
+
+    &.inactive {
+        background-color: red;
+    }
+
+    
+    @media screen and (max-width: 480px) {
+        padding: 0.5em;
+    }
+}

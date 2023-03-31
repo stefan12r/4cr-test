@@ -1,0 +1,26 @@
+<div class="app-component__table-wrapper">
+  <button class="app-component__add-user" [disabled]="isAddUserDisabled" (click)="openModal()">Add user</button>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Active</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of (users$ | async); trackBy: trackBy">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td [ngClass]="{
+          'active': user.active,
+          'inactive': !user.active
+        }">
+        <button [class.inactive]="!user.active" (click)="toggleUserActive(user)">{{ user.active ? "Active" : "Inactive" }}</button>        
+      </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template appAddUserHost></ng-template>
+

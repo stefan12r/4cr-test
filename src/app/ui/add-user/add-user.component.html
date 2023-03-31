@@ -1,0 +1,17 @@
+<div class="add-user__backdrop" (click)="closeModal()"></div>
+<form [formGroup]="userForm" class="add-user__form">
+    <div class="add-user__form__header">
+        <h3>Add user</h3>
+    </div>
+    <div class="add-user__form__body">
+        <div [class.error]="userForm!.controls['name'].touched && userForm!.controls['name'].invalid">
+            <label for="name">Name:</label>
+            <input type="text" name="name" formControlName="name"/>
+        </div>
+        <div [class.error]="userForm!.controls['active'].touched && userForm!.controls['active'].invalid">
+            <label for="active">Active:</label>
+            <input type="checkbox" name="active" formControlName="active"/>
+        </div>
+        <button type="submit" (click)="submitForm()">Add user!</button>
+    </div>
+</form>
